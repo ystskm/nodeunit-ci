@@ -27,7 +27,6 @@ function Runner() {
   this._state = State.Pending;
   this.ok = 0, this.err = 0, this.dur = 0;
 }
-inherits(Runner, EventEmitter);
 
 var RProtos = {
   run: run,
@@ -66,7 +65,7 @@ function run(files, opts) {
   nodeunit.runFiles(files.map(function(fnam) {
     return opts.makePath(fnam + '.js');
   }), {
-    done: _done()
+    done: _done
   });
 
 };
@@ -96,9 +95,9 @@ function _makePathFn(fix) {
 /**
  * @ignore
  */
-function _done(inst) {
+function _done() {
   _runner.err && (function() {
-    throw new Error(c_err + ' Error(s).');
+    throw new Error(_runner.err + ' Error(s).');
   })();
 }
 
