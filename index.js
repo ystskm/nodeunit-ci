@@ -105,7 +105,8 @@ nodeunit.on('complete', function(name, results) {
 
   var p = parseInt(results.passes() / results.length * 1000) / 10;
   var s = p == 100 ? 'perfect!': 'ok';
-  var m = results.duration + 'ms, ' + p + '% ' + s;
+  var m = results.duration + 'ms, ' + p + '% [' + results.passes() + '/'
+    + results.length + '] ' + s;
   util.log('- ' + name + ' (' + m + ')');
 
   _runner.ok += results.passes(), _runner.dur += results.duration;
