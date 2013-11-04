@@ -1,6 +1,6 @@
 {
   "name": "nodeunit-ci",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": {
     "name": "Yoshitaka Sakamoto",
     "url": "http://github.com/ystskm",
@@ -12,7 +12,7 @@
   },
   "description": "Simple nodeunit runner for ci",
   "devDependencies": {},
-  "keywords": ["util","nodeunit","test"],
+  "keywords": ["nodeunit","test","ci"],
   "main": "index.js",
   "repository": {
     "url": "http://github.com/ystskm/nodeunit-ci",
