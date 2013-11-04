@@ -6,7 +6,7 @@ Support for CI (continuous integration) with nodeuint.
 
 Install with [npm](http://github.com/isaacs/npm):
 
-    npm install nodeunit
+    npm install nodeunit-ci
 
 ## API - simple test runner
 
@@ -15,6 +15,7 @@ Install with [npm](http://github.com/isaacs/npm):
 ## STDOUT
     4 Nov 13:48:51 - - basic.js (7ms, 100% perfect!)
   
-## see test source
-  [node-localelist](https://github.com/ystskm/node-localelist) :test/basic.js
+## see for test fileset
+  [node-localelist](https://github.com/ystskm/node-localelist) 
+    .travis.ymi, package.js, test/basic.js
   
