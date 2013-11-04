@@ -16,5 +16,5 @@ Install with [npm](http://github.com/isaacs/npm):
     4 Nov 13:48:51 - - basic.js (7ms, 100% perfect!)
   
 ## see test source
-    [node-localelist](https://github.com/ystskm/node-localelist): test/basic.js
+  [node-localelist](https://github.com/ystskm/node-localelist): test/basic.js
   
