@@ -15,6 +15,7 @@ Install with [npm](http://github.com/isaacs/npm):
 
 ### STDOUT
     4 Nov 13:48:51 - - basic.js (7ms, 100% perfect!)
+   ![Alt text]( https://pbs.twimg.com/media/BYNNB09CMAACqkU.png "travis result")
   
 ## API - multiple + timeout(10sec)
   
