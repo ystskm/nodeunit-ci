@@ -137,7 +137,8 @@ nodeunit.on('complete', function(name, results) {
   _runner.ok += a_cnt, _runner.dur += results.duration;
   results.forEach(function(rslt) {
     if(rslt.error == null)
-      return;
+      return rslt.message
+        && console.log("\t[" + rslt.method + "]", rslt.message);
     _runner.err++, console.log("\t", rslt.method, rslt.message, rslt.error,
       rslt.passed(), rslt.failed());
   });
