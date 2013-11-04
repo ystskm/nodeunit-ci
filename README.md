@@ -1,23 +1,21 @@
-# localelist
+# nodeunit-ci
 
-Support for mapping between locale and the status.
-Easily extend by adding a locale file you want to use
+Support for CI (continuous integration) with nodeuint.
 
 ## Install
 
 Install with [npm](http://github.com/isaacs/npm):
 
-    npm install locale-list
+    npm install nodeunit
 
-## API - Queries
+## API - simple test runner
 
-    var ll = require('locale-list');
+  var ci = require('nodeunit-ci');
+  ci.run('basic', __dirname);
 
-    ll.shorten('ja_JP');         // => 'ja'
-    ll.toArray('ja_JP');         // => ['ja', 'ja_JP']
-    ll.data('ja_JP', 'ja');      // => '日本語 日本'
-    ll.list()                    // => ['ja_JP', 'en_US', ...]
-
-### extend locales
-
-    add or change file in "lists" directory 
+## STDOUT
+  4 Nov 13:48:51 - - basic.js (7ms, 100% perfect!)
+  
+## see
+  [node-localelist](https://github.com/ystskm/node-localelist)
+  
