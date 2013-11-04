@@ -1,0 +1,23 @@
+{
+  "name": "nodeunit-ci",
+  "version": "0.1.0",
+  "author": {
+    "name": "Yoshitaka Sakamoto",
+    "url": "http://github.com/ystskm",
+    "email": "sakamoto@liberty-technology.biz"
+  },
+  "contributors": [],
+  "dependencies": {
+    "nodeunit": ">=0.8.1"
+  },
+  "description": "Simple nodeunit runner for ci",
+  "devDependencies": {},
+  "keywords": ["util","locale","i18n"],
+  "main": "index.js",
+  "repository": {
+    "url": "http://github.com/ystskm/nodeunit-ci",
+    "type": "git"
+  },
+  "scripts": {
+  }
+}
