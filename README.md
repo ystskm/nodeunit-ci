@@ -5,7 +5,7 @@ Timeout can be set when start running.
 
 ## Install
 
-Install with [npm](http://github.com/isaacs/npm):
+Install with [npm](http://npmjs.org/):
 
     npm install nodeunit-ci
 
