@@ -186,7 +186,7 @@ function _fail(e) {
 function _timeout() {
   util.error(ErrMsg.Timeout);
   _fail('Last complete: ' + _lastnm
-    + (lrun.err ? ', ' + lrun.err + ' Error(s).': ''));
+    + (_runner.err ? ', ' + _runner.err + ' Error(s).': ''));
 }
 
 nodeunit.on('complete', function(name, results) {
