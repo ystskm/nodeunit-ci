@@ -61,8 +61,7 @@ function run(files, opts, timeout) {
   this._timeout = typeof timeout == 'number' ? timeout: DefaultTimeout;
 
   // set global runner (only one)
-  _runner = this, _runner._timer = setTimeout(_timeout,
-    typeof timeout == 'number' ? timeout: DefaultTimeout);
+  _runner = this, _runner._timer = setTimeout(_timeout, this._timeout);
 
   // already in use or used, throws error.
   if(_runner.state() != State.Pending)
@@ -117,8 +116,8 @@ function state(v) {
 /**
  * @ignore
  */
-function _run(files, opts) {
-  return new Runner().run(files, opts);
+function _run(files, opts, timeout) {
+  return new Runner().run(files, opts, timeout);
 }
 
 /**
