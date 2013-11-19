@@ -82,6 +82,16 @@ function run(files, opts, timeout) {
   if(typeof opts.makePath != 'function')
     opts.makePath = _makePathFn();
 
+  // if autoChdir is not set, set true.
+  if(typeof opts.autoChdir != 'boolean')
+    opts.autoChdir = true;
+
+  // change process position to the specified
+  opts.autoChdir && (function() {
+    _runner._cwd = process.cwd()
+    process.chdir(opts.makePath('.'));
+  })();
+
   // convert to array to accept an test file string.
   files = Array.isArray(files) ? files: [files];
   // kick nodeunit runner.
@@ -164,7 +174,7 @@ function _taskFinalize(callback) {
     return;
   var _r = _runner;
   _runner = null, _lastnm = null, _r._timer && clearTimeout(_r._timer), _r
-      .state(State.Pending), callback(_r);
+      .state(State.Pending), _r._cwd && process.chdir(_r._cwd), callback(_r);
 }
 
 /**

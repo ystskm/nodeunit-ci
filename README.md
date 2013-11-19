@@ -9,19 +9,21 @@ Install with [npm](http://npmjs.org/):
 
     npm install nodeunit-ci
 
-## API - simple test runner
-    // Default timeout is 60sec
-    require('nodeunit-ci').run('basic', __dirname);
+## Exsample code - simple test runner
+```js
+// Default timeout is 60sec
+require('nodeunit-ci').run('basic', __dirname);
+```
 
 ### STDOUT
     4 Nov 13:48:51 - - basic.js (7ms, 100% perfect!)
    ![Alt text]( https://pbs.twimg.com/media/BYNNB09CMAACqkU.png "travis result")
   
-## API - multiple + timeout(10sec)
+## Exsample code - multiple + timeout(10sec)
   
     require('nodeunit-ci').run(['basic', 'state'] , __dirname, 10000);
   
-## API - multiple + pipe + event
+## Exsample code - multiple + pipe + event
 
     // 2nd and 3rd parameter inherits to next task
     require('nodeunit-ci').run('basic', __dirname, 10000).pipe('state').on('end', function(results){
