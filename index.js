@@ -170,7 +170,7 @@ function _initPerModule() {
 function _testDone() {
   var n = (arguments[0] || '')[0];
   if(typeof n == 'string')
-    console.log('test "' + n + '" done.');
+    console.log('[done] test "' + n + '".');
   _runner.emit(Event.TestDone, arguments[0]);
 }
 
