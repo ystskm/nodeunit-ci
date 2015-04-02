@@ -17,6 +17,7 @@ var State = {
 
 // constant
 var Event = {
+  TestDone: 'testDone',
   Error: 'error',
   End: 'end'
 };
@@ -70,13 +71,18 @@ function run(files, opts, timeout) {
 
   //{opts}[String || Object]
   //  makePath: a function to get a test suite
-  if(!opts)
-    opts = {}
-    // when opts is string, use it as path prefix.
-  else if(typeof opts == 'string')
+
+  // when opts is string, use it as path prefix.
+  if(typeof opts == 'string' || typeof opts == 'function')
     opts = {
-      makePath: _makePathFn(opts)
+      makePath: opts
     };
+  else if(!opts || typeof opts != 'object')
+    opts = {};
+
+  // if makePath is a string, 
+  if(typeof opts.makePath == 'string')
+    opts.makePath = _makePathFn(opts.makePath);
 
   // if makePath is not a function, 
   if(typeof opts.makePath != 'function')
@@ -94,13 +100,25 @@ function run(files, opts, timeout) {
 
   // convert to array to accept an test file string.
   files = Array.isArray(files) ? files: [files];
+
+  var runOpts = {
+
+    moduleStart: _initPerModule,
+    moduleDone: opts.testDone || null,
+
+    testStart: opts.testStart || null,
+    testReady: opts.testReady || null,
+    testDone: opts.testDone || _testDone,
+
+    log: opts.log || null,
+    done: opts.testDone || _taskDone
+
+  };
+
   // kick nodeunit runner.
   nodeunit.runFiles(files.map(function(fnam) {
     return opts.makePath(fnam + '.js');
-  }), {
-    moduleStart: _initPerModule,
-    done: _taskDone
-  });
+  }), runOpts);
 
   return this;
 
@@ -144,6 +162,16 @@ function _makePathFn(fix) {
  */
 function _initPerModule() {
   _runner.ok = 0, _runner.err = 0, _runner.dur = 0;
+}
+
+/**
+ * @ignore
+ */
+function _testDone() {
+  var n = (arguments[0] || '')[0];
+  if(typeof n == 'string')
+    console.log('test "' + n + '" done.');
+  _runner.emit(Event.TestDone, arguments[0]);
 }
 
 /**
